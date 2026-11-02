@@ -158,6 +158,7 @@ function App() {
       })
 
       localStorage.setItem('ransomware-token', payload.token)
+      localStorage.setItem('ransomware-user', JSON.stringify(payload.user))
       setToken(payload.token)
       setUser(payload.user)
       setNotice({ type: 'success', message: authMode === 'login' ? 'Login successful.' : 'Registration complete.' })
@@ -170,6 +171,7 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem('ransomware-token')
+    localStorage.removeItem('ransomware-user')
     setToken('')
     setUser(null)
     setActiveSection('dashboard')
